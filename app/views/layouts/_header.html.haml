@@ -11,11 +11,13 @@
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-              UserName
+              = current_user.user_name
               %span.caret
             %ul.dropdown-menu{:role => "menu"}
               %li
-                %a{:href => "#"} Profile Edit
+                = link_to("mypage", user_path(current_user))
+              %li
+                = link_to("Edit", edit_user_path(current_user))
               %li
                 = link_to("logout", destroy_user_session_path, method: "DELETE")
           %li
