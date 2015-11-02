@@ -17,7 +17,7 @@
               %li
                 = link_to("mypage", user_path(current_user))
               %li
-                %a{:href => "#"} Profile Edit
+                = link_to("Edit", edit_user_path(current_user))
               %li
                 = link_to("logout", destroy_user_session_path, method: "DELETE")
           %li
