@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   private
-  def user_edit_param
+  def user_params
     params.require(:user).permit(:user_name, :avatar, :email, :password, :member, :profile, :works)
   end
 
