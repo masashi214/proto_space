@@ -7,11 +7,3 @@ $(function() {
     });
 });
 
-$(window).load(function() {
-  $('.cover-image-upload').imagefit({
-    mode: 'outside',
-    force : 'false',
-    halign : 'center',
-    valign : 'middle'
-  });
-});
