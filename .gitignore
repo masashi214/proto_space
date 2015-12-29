@@ -16,3 +16,5 @@ app/assets/images/*
 .DS_store
 *.swp
 public/uploads/*
+
+config/s3.yml
