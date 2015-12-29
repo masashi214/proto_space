@@ -1,4 +1,4 @@
-%form.container.proto-new{:action => ""}
+= form_for(@prototype, url: '/prototypes', action: 'post', html: {class: "container proto-new"}) do |f|
   .col-md-8.col-md-offset-2
     %header.row.user-nav.row
       .col-md-12
@@ -6,15 +6,15 @@
     .row
       .col-md-12
         .cover-image-upload
-          %input{:type => "file"}/
+          = f.file_field :file
       .col-md-12
         %ul.proto-sub-list.list-group
           %li.list-group-item.col-md-4
             .image-upload
-              %input{:type => "file"}/
+              = f.file_field :file
           %li.list-group-item.col-md-4
             .image-upload
-              %input{:type => "file"}/
+              = f.file_field :file
           %li.list-group-item.col-md-4
             .image-upload-plus
               %span +
