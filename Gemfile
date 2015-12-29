@@ -52,3 +52,6 @@ group :development do
   gem 'spring'
 end
 
+gem 'paperclip'
+gem 'aws-s3'
+gem 'aws-sdk'
