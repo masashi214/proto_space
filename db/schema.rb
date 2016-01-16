@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160116080738) do
+ActiveRecord::Schema.define(version: 20160116170143) do
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id",      limit: 4
+    t.integer  "prototype_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "pictures", force: :cascade do |t|
     t.string   "file",         limit: 255
@@ -25,7 +32,7 @@ ActiveRecord::Schema.define(version: 20160116080738) do
     t.string   "title",       limit: 255
     t.string   "catch_copy",  limit: 255
     t.string   "concept",     limit: 255
-    t.integer  "total_likes", limit: 4
+    t.integer  "likes_count", limit: 4
     t.integer  "user_id",     limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false

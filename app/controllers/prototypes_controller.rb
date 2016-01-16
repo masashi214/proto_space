@@ -5,6 +5,7 @@ class PrototypesController < ApplicationController
 
   def show
     @prototype = Prototype.find(params[:id])
+    @like = current_user.likes.find_by(prototype_id: @prototype.id)
   end
 
   def new
