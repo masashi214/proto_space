@@ -2,25 +2,28 @@
   .col-md-8.col-md-offset-2
     %header.row.user-nav.row
       .col-md-12
-        %input.proto-new-title{:type => "text", :placeholder => "Title"}/
+        = f.text_field :title, placeholder: "Title"
     .row
       .col-md-12
         .cover-image-upload
-          = f.file_field :file
+          = f.fields_for :pictures do |picture|
+            = picture.file_field :file
       .col-md-12
         %ul.proto-sub-list.list-group
           %li.list-group-item.col-md-4
             .image-upload
-              = f.file_field :file
+              = f.fields_for :pictures do |picture|
+                = picture.file_field :file
           %li.list-group-item.col-md-4
             .image-upload
-              = f.file_field :file
+              = f.fields_for :pictures do |picture|
+                = picture.file_field :file
           %li.list-group-item.col-md-4
             .image-upload-plus
               %span +
     .row.proto-description
       .col-md-12
-        %input{:type => "text", :placeholder => "Catch Copy"}/
+        = f.text_field :catch_copy, placeholder: "Catch Copy"
       .col-md-12
         %textarea{:name => "", :cols => "30", :rows => "4", :placeholder => "Concept"}
       .col-md-12
