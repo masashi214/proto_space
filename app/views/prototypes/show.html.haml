@@ -15,9 +15,17 @@
               
     .col-md-6.text-right
       %button.btn.btn-default
-        = image_tag("icon_heart.svg")
-        Like
-        %span.num 20
+        - if @prototype.likes.any? {|like| like.user_id == current_user.id}
+          unlike
+          = link_to image_tag("icon_heart.svg"), prototype_like_path(@prototype, @like), method: :delete, remote: true
+          %span.num
+            = @prototype.likes_count
+        - else
+          like
+          = link_to image_tag("icon_heart.svg"), prototype_likes_path(@prototype, @like), method: :post, remote: true
+          %span.num
+            = @prototype.likes_count
+
   .row
     .col-md-9
       = image_tag("#{@prototype.pictures[0].file}", class: 'img-responsive')
