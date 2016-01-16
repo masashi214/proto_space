@@ -52,3 +52,6 @@ group :development do
   gem 'spring'
 end
 
+gem 'aws-s3'
+gem 'aws-sdk'
+gem 'kaminari'
