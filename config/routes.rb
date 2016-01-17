@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :prototypes do
     resources :likes, only: [:create, :destroy]
     collection do
+      get '/newest', to: 'prototypes#newest_index'
       resources :newest, only: :index
     end
   end

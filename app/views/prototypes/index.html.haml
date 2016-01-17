@@ -6,10 +6,17 @@
   .container
     .row
       %ul.nav.nav-pills.col-lg-11
-        %li.active{role: "presentation"}
-          %a{href: "#"} Popular PROTO
-        %li{role: "presentation"}
-          %a{href: "#"} Newest PROTO
+        - if params[:action] == "index"
+          %li.active{role: "presentation"}
+            %a{href: "/"} Popular PROTO
+          %li{role: "presentation"}
+            %a{href: "/prototypes/newest"} Newest PROTO
+        - else
+          %li{role: "presentation"}
+            %a{href: "/"} Popular PROTO
+          %li.active{role: "presentation"}
+            %a{href: "/prototypes/newest"} Newest PROTO
+
       = link_to 'View Tags', tags_path, class: "btn btn-default col-lg-1"
 
 .container.proto-list
@@ -29,7 +36,7 @@
                   Apr 26
               %ul.proto-tag-list.list-inline
                 - prototype.tag_list.each do |tag|
-                  %li style-type: none;
+                  %li
                     = link_to tag, tag_path(tag), :class => "btn btn-default"
 
 .text-center

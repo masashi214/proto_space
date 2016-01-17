@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
   def index
-    @prototypes = Prototype.page(params[:page]).per(8).order('created_at DESC')
+    @prototypes = Prototype.includes(:tags).order("likes_count desc").eager_load(:pictures, :user).page(params[:page])
   end
 
   def show
@@ -20,6 +20,11 @@ class PrototypesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def newest_index
+    @prototypes = Prototype.includes(:tags).order("prototypes.created_at desc").eager_load(:pictures, :user).page(params[:page])
+    render :index
   end
 
   private
