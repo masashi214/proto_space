@@ -6,7 +6,7 @@
           %img.media-object{:alt => "64x64", "data-holder-rendered" => "true", "data-src" => "holder.js/64x64", :src => @user.avatar, :style => "width: 64px; height: 64px;"}/
       .media-body
         %h4#top-aligned-media.media-heading
-          Top aligned media
+          = @user.user_name
           %span.label.label-default.project-number
             29
             %i Projects
@@ -22,118 +22,22 @@
             %p= @user.works
 .container.proto-list
   .row
-    .col-sm-4.col-md-3.proto-content
-      .thumbnail
-        %a{:href => ""}
-          = image_tag("sample.png")
-          .caption
-            %h3 Salvation Army on iPad App Wireframe
-            .proto-meta
-              .proto-date
-                Apr 26
-            %ul.proto-tag-list.list-inline
-              %li 
-                %a{:href => "#", :class => "btn btn-default"} iPad
-              %li 
-                %a{:href => "#", :class => "btn btn-default"} wireframe
-    .col-sm-4.col-md-3.proto-content
-      .thumbnail
-        %a{:href => ""}
-          = image_tag("sample.png")
-          .caption
-            %h3 Salvation Army on iPad App Wireframe
-            .proto-meta
-              .proto-date
-                Apr 26
-            %ul.proto-tag-list.list-inline
-              %li 
-                %a{:href => "#", :class => "btn btn-default"} iPad
-              %li 
-                %a{:href => "#", :class => "btn btn-default"} wireframe
-    .col-sm-4.col-md-3.proto-content
-      .thumbnail
-        %a{:href => ""}
-          = image_tag("sample.png")
-          .caption
-            %h3 Salvation Army on iPad App Wireframe
-            .proto-meta
-              .proto-date
-                Apr 26
-            %ul.proto-tag-list.list-inline
-              %li 
-                %a{:href => "#", :class => "btn btn-default"} iPad
-              %li 
-                %a{:href => "#", :class => "btn btn-default"} wireframe
-    .col-sm-4.col-md-3.proto-content
-      .thumbnail
-        %a{:href => ""}
-          = image_tag("sample.png")
-          .caption
-            %h3 Salvation Army on iPad App Wireframe
-            .proto-meta
-              .proto-date
-                Apr 26
-            %ul.proto-tag-list.list-inline
-              %li 
-                %a{:href => "#", :class => "btn btn-default"} iPad
-              %li 
-                %a{:href => "#", :class => "btn btn-default"} wireframe
-    .col-sm-4.col-md-3.proto-content
-      .thumbnail
-        %a{:href => ""}
-          = image_tag("sample.png")
-          .caption
-            %h3 Salvation Army on iPad App Wireframe
-            .proto-meta
-              .proto-date
-                Apr 26
-            %ul.proto-tag-list.list-inline
-              %li 
-                %a{:href => "#", :class => "btn btn-default"} iPad
-              %li 
-                %a{:href => "#", :class => "btn btn-default"} wireframe
-    .col-sm-4.col-md-3.proto-content
-      .thumbnail
-        %a{:href => ""}
-          = image_tag("sample.png")
-          .caption
-            %h3 Salvation Army on iPad App Wireframe
-            .proto-meta
-              .proto-date
-                Apr 26
-            %ul.proto-tag-list.list-inline
-              %li 
-                %a{:href => "#", :class => "btn btn-default"} iPad
-              %li 
-                %a{:href => "#", :class => "btn btn-default"} wireframe
-    .col-sm-4.col-md-3.proto-content
-      .thumbnail
-        %a{:href => ""}
-          = image_tag("sample.png")
-          .caption
-            %h3 Salvation Army on iPad App Wireframe
-            .proto-meta
-              .proto-date
-                Apr 26
-            %ul.proto-tag-list.list-inline
-              %li 
-                %a{:href => "#", :class => "btn btn-default"} iPad
-              %li 
-                %a{:href => "#", :class => "btn btn-default"} wireframe
-    .col-sm-4.col-md-3.proto-content
-      .thumbnail
-        %a{:href => ""}
-          = image_tag("sample.png")
-          .caption
-            %h3 Salvation Army on iPad App Wireframe
-            .proto-meta
-              .proto-date
-                Apr 26
-            %ul.proto-tag-list.list-inline
-              %li 
-                %a{:href => "#", :class => "btn btn-default"} iPad
-              %li 
-                %a{:href => "#", :class => "btn btn-default"} wireframe
+    - @prototypes.each do |prototype|
+      .col-sm-4.col-md-3.proto-content
+        .thumbnail
+          %a{:href => ""}
+            = image_tag("#{prototype.pictures[0].file}")
+            .caption
+              %h3 
+                = prototype.title
+              .proto-meta
+                .proto-date
+                  = strftime_format(prototype.created_at)
+              %ul.proto-tag-list.list-inline
+                %li 
+                  %a{:href => "#", :class => "btn btn-default"} iPad
+                %li 
+                  %a{:href => "#", :class => "btn btn-default"} wireframe
                 
 .text-center
   %ul.pagination
