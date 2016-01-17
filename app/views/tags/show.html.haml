@@ -1,16 +1,15 @@
 .jumbotron
   .container.text-center
-    = image_tag("header_logo.png", :alt => "PROTO TYPE - SHARE THE PROTOTYPE", :height => "73px")
+    = image_tag("header_logo.png", height: "73px")
 
 .filter-nav
   .container
     .row
       %ul.nav.nav-pills.col-lg-11
         %li.active{role: "presentation"}
-          %a{href: "#"} Popular PROTO
-        %li{role: "presentation"}
-          %a{href: "#"} Newest PROTO
-      = link_to 'View Tags', tags_path, class: "btn btn-default col-lg-1"
+          = link_to "Popular PROTO", root_path
+        %li{:role => "presentation"}
+      = link_to "View Tags", tags_path, class: "btn btn-default col-lg-1"
 
 .container.proto-list
   .row
@@ -29,26 +28,8 @@
                   Apr 26
               %ul.proto-tag-list.list-inline
                 - prototype.tag_list.each do |tag|
-                  %li style-type: none;
+                  %li
                     = link_to tag, tag_path(tag), :class => "btn btn-default"
-
 .text-center
   %ul.pagination
-    %li.disabled
-      %a{"aria-label" => "Previous", href: "#"}
-        %span{"aria-hidden" => "true"} «
-    %li.active
-      %a{href: "#"}
-        1
-        %span.sr-only (current)
-    %li
-      %a{href: "#"} 2
-    %li
-      %a{href: "#"} 3
-    %li
-      %a{href: "#"} 4
-    %li
-      %a{href: "#"} 5
-    %li
-      %a{"aria-label" => "Next", href: "#"}
-        %span{"aria-hidden" => "true"} »
+

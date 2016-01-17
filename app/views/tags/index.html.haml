@@ -1,0 +1,11 @@
+.container
+  .row
+    .tags-list
+      %h2 Tags list
+      - if @tags
+        %ul
+          - @tags.each do |tag|
+            %li.col-md-4
+              = link_to tag, tag_path(tag.name), class: "btn btn-default"
+      - else
+        %p 該当のタグは存在しません
