@@ -14,15 +14,20 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    Prototype.create(create_params)
-    redirect_to action: :index
+    @prototype = current_user.prototypes.new(create_params)
+    if @prototype.save
+      redirect_to :root, notice: "Prototypeを作成しました"
+    else
+      render :new
+    end
   end
 
   private
   def create_params
-    params.require('prototype').permit(
-      :title, :catch_copy, :concept,
-      pictures_attributes: [:file, :main]
-    ).merge(user_id: current_user.id)
+    tag_list = params[:prototype][:tag_list].join(",")
+    params
+      .require('prototype')
+      .permit( :title, :catch_copy, :concept, :tag_list, pictures_attributes: [:file, :main],
+    ).merge(user_id: current_user.id, tag_list: tag_list)
   end
 end

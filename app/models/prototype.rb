@@ -4,5 +4,5 @@ class Prototype < ActiveRecord::Base
   has_many :likes
   accepts_nested_attributes_for :pictures
   belongs_to :user
-
+  acts_as_taggable
 end
