@@ -6,10 +6,17 @@
   .container
     .row
       %ul.nav.nav-pills.col-lg-11
-        %li.active{role: "presentation"}
-          %a{href: "/"} Popular PROTO
-        %li{role: "presentation"}
-          %a{href: "/prototypes/newest"} Newest PROTO
+        - if params[:action] == "index"
+          %li.active{role: "presentation"}
+            %a{href: "/"} Popular PROTO
+          %li{role: "presentation"}
+            %a{href: "/prototypes/newest"} Newest PROTO
+        - else
+          %li{role: "presentation"}
+            %a{href: "/"} Popular PROTO
+          %li.active{role: "presentation"}
+            %a{href: "/prototypes/newest"} Newest PROTO
+
       = link_to 'View Tags', tags_path, class: "btn btn-default col-lg-1"
 
 .container.proto-list
