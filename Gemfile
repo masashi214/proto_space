@@ -55,3 +55,4 @@ end
 gem 'aws-s3'
 gem 'aws-sdk'
 gem 'kaminari'
+gem 'acts-as-taggable-on', '~> 3.4'
